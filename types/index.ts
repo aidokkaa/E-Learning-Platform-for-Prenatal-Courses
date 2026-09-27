@@ -1,5 +1,5 @@
 export interface Course {
-  id: number;
+  id: string;
   title: string;
   slug: string;
   description: string;
@@ -10,8 +10,16 @@ export interface Course {
   modules:Module[]
 }
 export interface Module {
+  id:string,
   title: string;
   duration: string;
+  lessons: Lesson[];
+}
+export interface Lesson {
+  id:string,
+  title:string,
+  duration:string,
+  videoUrl: string;
 }
 
 export interface FAQdata {

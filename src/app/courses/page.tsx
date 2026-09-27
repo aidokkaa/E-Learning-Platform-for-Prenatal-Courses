@@ -1,5 +1,5 @@
 import React from 'react';
-import { courses } from '@/src/data/courses';
+import {COURSES} from '../../data/courses/index'
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -16,7 +16,7 @@ const CoursesCatalogPage = () => {
 
       {/* Сетка курсов */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {courses.map((course) => (
+        {COURSES.map((course) => (
           <Link 
             key={course.id} 
             href={`/courses/${course.slug}`}

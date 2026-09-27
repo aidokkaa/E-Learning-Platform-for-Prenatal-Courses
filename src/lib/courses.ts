@@ -1,7 +1,7 @@
-import { courses } from "../data/courses";
+import { COURSES } from "../data/courses";
 import { Course } from "@/types";
 export function getAllCourses (){
-    return courses;
+    return COURSES;
 }
 
 // export const getAllCoursesByCategory =(data:Course[],category:string)=>{

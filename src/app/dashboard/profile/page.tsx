@@ -1,197 +1,129 @@
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BookOpen, User, Mail, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 
-export default async function DashboardPage() {
-  const { userId } = await auth();
+export default async function AccountPage() {
+  // 1. Получаем текущего пользователя на сервере
+  const user = await currentUser();
 
-  // Если юзер не авторизован — принудительно перекидываем на главную
-  if (!userId) {
-    redirect("/");
+  // Если пользователь не залогинен, перенаправляем на страницу входа
+  if (!user) {
+    redirect('/sign-in');
   }
 
+  // 2. Достаем список записанных курсов из publicMetadata
+  const enrolledCourses = (user.publicMetadata?.enrolledCourses as string[]) || [];
+
   return (
-  <div className="space-y-8">
-      
-      {/* 🌸 ВЕРХНИЙ ВИДЖЕТ БЕРЕМЕННОСТИ */}
-      <div className="bg-[#FFF6F0] border border-[#EAD9CE] rounded-3xl p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <span className="inline-block bg-[#EAD9CE]/60 text-[#412B1A] text-xs font-medium tracking-wider uppercase px-3.5 py-1 rounded-full mb-2">
-              2nd Trimester
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#412B1A]">
-              Week 24 of <span className="italic text-[#D5A272] font-serif">pregnancy</span>
-            </h2>
-            <p className="text-[#6E5949] text-sm font-light mt-1">
-              Your baby is currently about the size of an eggplant (~11.8 in)
-            </p>
-          </div>
-          <div className="bg-white border border-[#EAD9CE] rounded-2xl px-4 py-3 text-left sm:text-right self-start sm:self-auto">
-            <span className="text-xs text-[#6E5949] block font-light">Time remaining</span>
-            <span className="text-xl font-serif italic text-[#412B1A]">~112 days</span>
-          </div>
-        </div>
-
-        {/* Прогресс-бар */}
+    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        
+        {/* Заголовок */}
         <div>
-          <div className="flex justify-between text-xs text-[#6E5949] font-light mb-2">
-            <span>Week 1</span>
-            <span className="text-[#412B1A] font-medium">Week 24 (60%)</span>
-            <span>Week 40</span>
-          </div>
-          <div className="w-full bg-[#EAD9CE]/50 h-2.5 rounded-full overflow-hidden p-0.5">
-            <div 
-              className="bg-[#D5A272] h-full rounded-full transition-all duration-500" 
-              style={{ width: '60%' }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 1️⃣ БЛОК: Personal Information */}
-      <div className="bg-white border border-[#EAD9CE] rounded-3xl overflow-hidden shadow-sm">
-        <div className="bg-[#FFF6F0]/60 px-6 py-4 border-b border-[#EAD9CE] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">👤</span>
-            <h3 className="text-base font-normal text-[#412B1A]">Personal Information</h3>
-          </div>
-          <span className="text-xs text-[#6E5949] italic font-serif">Main profile data</span>
+          <h1 className="text-3xl font-bold text-slate-900">Personal Account</h1>
+          <p className="text-slate-600 mt-1">Manage your profile and access your enrolled courses.</p>
         </div>
 
-        <div className="p-6 sm:p-8 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs font-medium text-[#412B1A] tracking-wider uppercase mb-2">
-                Full Name
-              </label>
-              <input 
-                type="text" 
-                defaultValue="Aida Sabyrova" 
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] text-[#412B1A] focus:outline-none focus:border-[#D5A272] text-sm"
+        {/* Карточка профиля */}
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-indigo-50 shadow-inner flex-shrink-0">
+            {user.imageUrl ? (
+              <Image
+                src={user.imageUrl}
+                alt={user.firstName || 'User Avatar'}
+                fill
+                className="object-cover"
               />
-            </div>
-
-            <div>
-              <label className="block text-xs font-medium text-[#412B1A] tracking-wider uppercase mb-2">
-                Email Address
-              </label>
-              <input 
-                type="email" 
-                defaultValue="aida.ms0097@gmail.com" 
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] text-[#412B1A] focus:outline-none focus:border-[#D5A272] text-sm"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-medium text-[#412B1A] tracking-wider uppercase mb-2">
-                Estimated Due Date (EDD)
-              </label>
-              <input 
-                type="date" 
-                defaultValue="2026-11-20" 
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] text-[#412B1A] focus:outline-none focus:border-[#D5A272] text-sm"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-medium text-[#412B1A] tracking-wider uppercase mb-2">
-                Phone Number
-              </label>
-              <input 
-                type="tel" 
-                defaultValue="+1 (555) 000-0000" 
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] text-[#412B1A] focus:outline-none focus:border-[#D5A272] text-sm"
-              />
-            </div>
-          </div>
-
-          <div className="flex justify-end pt-2">
-            <button 
-              type="button" 
-              className="px-7 py-3 bg-[#412B1A] text-[#FFF6F0] rounded-full font-medium text-xs tracking-wider uppercase shadow-sm hover:opacity-90 transition-opacity"
-            >
-              Save Personal Info
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 2️⃣ БЛОК: My Courses (Вместо Care & Support) */}
-      <div className="bg-white border border-[#EAD9CE] rounded-3xl overflow-hidden shadow-sm">
-        <div className="bg-[#FFF6F0]/60 px-6 py-4 border-b border-[#EAD9CE] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">📚</span>
-            <h3 className="text-base font-normal text-[#412B1A]">My Courses</h3>
-          </div>
-          <span className="text-xs text-[#D5A272] font-medium uppercase tracking-wider">2 Active</span>
-        </div>
-
-        <div className="p-6 sm:p-8 space-y-4">
-          
-          {/* Курс 1 */}
-          <div className="p-5 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-xs font-serif italic text-[#D5A272]">2nd Trimester Guide</span>
-              <h4 className="text-base font-medium text-[#412B1A] mt-0.5">Healthy Pregnancy & Nutrition</h4>
-              <p className="text-xs text-[#6E5949] font-light mt-1">12 lessons • 4 modules</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="text-right hidden sm:block">
-                <span className="text-xs text-[#412B1A] font-medium block">75% Completed</span>
-                <span className="text-[10px] text-[#6E5949] font-light">9 of 12 lessons</span>
+            ) : (
+              <div className="w-full h-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-2xl">
+                {user.firstName?.[0] || 'U'}
               </div>
-              <button className="px-5 py-2.5 bg-[#412B1A] text-[#FFF6F0] rounded-full text-xs font-medium tracking-wide uppercase hover:opacity-90 transition-opacity">
-                Continue
-              </button>
-            </div>
+            )}
           </div>
 
-          {/* Курс 2 */}
-          <div className="p-5 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-xs font-serif italic text-[#D5A272]">Preparation</span>
-              <h4 className="text-base font-medium text-[#412B1A] mt-0.5">Labor & Birth Preparation Masterclass</h4>
-              <p className="text-xs text-[#6E5949] font-light mt-1">8 lessons • 2 modules</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="text-right hidden sm:block">
-                <span className="text-xs text-[#412B1A] font-medium block">20% Completed</span>
-                <span className="text-[10px] text-[#6E5949] font-light">2 of 8 lessons</span>
+          <div className="flex-1 text-center sm:text-left space-y-2">
+            <h2 className="text-2xl font-bold text-slate-900">
+              {user.firstName} {user.lastName}
+            </h2>
+            
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-slate-600 pt-1">
+              <div className="flex items-center gap-1.5">
+                <Mail className="w-4 h-4 text-slate-400" />
+                <span>{user.emailAddresses[0]?.emailAddress}</span>
               </div>
-              <button className="px-5 py-2.5 bg-[#412B1A] text-[#FFF6F0] rounded-full text-xs font-medium tracking-wide uppercase hover:opacity-90 transition-opacity">
-                Continue
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* 3️⃣ БЛОК: My Certificates */}
-      <div className="bg-white border border-[#EAD9CE] rounded-3xl overflow-hidden shadow-sm">
-        <div className="bg-[#FFF6F0]/60 px-6 py-4 border-b border-[#EAD9CE] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">🎓</span>
-            <h3 className="text-base font-normal text-[#412B1A]">My Certificates</h3>
-          </div>
-        </div>
-
-        <div className="p-6 sm:p-8">
-          <div className="p-5 rounded-2xl bg-[#FFF6F0]/30 border border-[#EAD9CE] flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">📜</span>
-              <div>
-                <h4 className="text-sm font-medium text-[#412B1A]">First Trimester Basics</h4>
-                <p className="text-xs text-[#6E5949] font-light">Issued on June 15, 2026</p>
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-slate-400" />
+                <span>Joined {new Date(user.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
               </div>
             </div>
-            <button className="px-4 py-2 border border-[#412B1A] text-[#412B1A] rounded-full text-xs font-medium uppercase hover:bg-[#412B1A]/5 transition-colors">
-              Download PDF
-            </button>
           </div>
         </div>
-      </div>
 
+        {/* Секция с записанными курсами */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-indigo-600" />
+              My Enrolled Courses ({enrolledCourses.length})
+            </h2>
+          </div>
+
+          {enrolledCourses.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {enrolledCourses.map((courseSlug, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+                >
+                  <div className="space-y-2">
+                    <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <CheckCircle className="w-3.5 h-3.5" />
+                      Active Enrollment
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 capitalize">
+                      {courseSlug.replace(/-/g, ' ')}
+                    </h3>
+                    <p className="text-sm text-slate-600">
+                      You have full access to all course materials and support.
+                    </p>
+                  </div>
+
+                  <div className="pt-6">
+                    <Link
+                      href={`/courses/${courseSlug}`}
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl transition-colors text-sm"
+                    >
+                      Go to Course
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl border border-dashed border-slate-300 p-8 text-center space-y-3">
+              <div className="w-12 h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">No courses yet</h3>
+              <p className="text-sm text-slate-500 max-w-sm mx-auto">
+                You haven&apos;t enrolled in any courses yet. Explore our available programs and start learning today!
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/#courses"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700"
+                >
+                  Browse Courses &rarr;
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+
+      </div>
     </div>
-  )
+  );
 }

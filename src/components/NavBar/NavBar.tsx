@@ -1,11 +1,11 @@
-"use client"; // Добавь эту строку первой
+"use client";
 
 import React from 'react';
 import Link from 'next/link';
-import { useUser, SignInButton, UserButton } from "@clerk/nextjs"; // Импортируем компоненты Clerk
+import { useUser, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
-  const { isSignedIn, isLoaded } = useUser(); // Получаем состояние входа
+  const { isSignedIn, isLoaded } = useUser();
 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFDFB]/80 backdrop-blur-md border-b border-[#EAD9CE]/30">
@@ -30,17 +30,17 @@ const Navbar = () => {
           {!isLoaded ? (
             <div className="w-20 h-10 animate-pulse bg-gray-200 rounded-full" />
           ) : isSignedIn ? (
-            // Если юзер авторизован — показываем кнопку профиля
-            <UserButton  />
+            // Если юзер авторизован — показываем аватарку
+            <UserButton />
           ) : (
-            // Если юзер НЕ авторизован — показываем кнопки
+            // Если юзер НЕ авторизован — ведем на /dashboard/profile
             <>
-              <SignInButton mode="modal" forceRedirectUrl="/dashboard">
+              <SignInButton mode="modal" fallbackRedirectUrl="/dashboard/profile">
                 <button className="text-[#412B1A] font-medium text-[15px] hover:text-[#6e3412] transition">
                   Log In
                 </button>
               </SignInButton>
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" fallbackRedirectUrl="/dashboard/profile">
                 <button className="bg-[#412B1A] text-[#FFF6F0] px-6 py-2.5 rounded-full font-medium text-[15px] hover:opacity-90 transition shadow-sm">
                   Get Started
                 </button>
