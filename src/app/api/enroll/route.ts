@@ -7,7 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    // 1. Проверяем авторизацию
     const { userId } = await auth();
 
     if (!userId) {
@@ -43,7 +42,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // 4. Обновляем publicMetadata в Clerk (добавляем в pendingCourses)
     const currentPending = (user.publicMetadata?.pendingCourses as string[]) || [];
 
     if (!currentPending.includes(courseSlug)) {

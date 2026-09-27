@@ -1,9 +1,10 @@
 "use client";
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
+import { AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useEnrollment } from "@/src/hooks/useEnrollment";
 
 const enrollSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -21,12 +22,13 @@ interface EnrollFormProps {
 }
 
 const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  // Импортируем наш кастомный хук
+  const { enroll, isLoading, error: apiError, isSuccess } = useEnrollment();
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<EnrollFormData>({
     resolver: zodResolver(enrollSchema),
@@ -39,37 +41,21 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
   });
 
   const onSubmit = async (data: EnrollFormData) => {
-    try {
-      // Реальная отправка на серверный API Route
-      const response = await fetch("/api/enroll", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          courseSlug,
-          name: data.fullName,
-          email: data.email,
-          phone: data.phone,
-        }),
-      });
+    const success = await enroll({
+      courseSlug,
+      name: data.fullName,
+      email: data.email,
+      phone: data.phone,
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit enrollment");
-      }
-
-      setIsSuccess(true);
+    if (success) {
       reset();
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("Something went wrong. Please try again.");
     }
   };
 
   return (
-    // w-full выносит секцию на всю ширину, а bg-[#F7F1EC] создаёт мягкий контрастный фон
     <section id="enroll-form" className="w-full bg-[#F7F1EC] py-16 px-6 mt-16 scroll-mt-10 border-t border-[#E8D8CD]">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Левая колонка: Заголовок и преимущества */}
         <div className="space-y-6">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#9E7A60] bg-[#EFE4DC] px-3 py-1 rounded-full">
             Ready to start?
@@ -96,8 +82,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
             </div>
           </div>
         </div>
-
-        {/* Правая колонка: Карточка с формой */}
         <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#E8D8CD] shadow-sm">
           {isSuccess ? (
             <div className="bg-[#E2F0D9] text-[#2D5A27] p-6 rounded-2xl text-center space-y-2">
@@ -111,6 +95,12 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
               <h3 className="text-xl font-semibold text-[#412B1A] mb-4">
                 Enrollment Form
               </h3>
+              {apiError && (
+  <div className="flex items-center gap-2.5 p-3.5 mb-4 bg-rose-50 border border-rose-200 text-rose-700 rounded-2xl text-xs font-medium shadow-sm animate-in fade-in slide-in-from-top-1 duration-200">
+    <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" />
+    <span>{apiError}</span>
+  </div>
+)}
 
               {/* Name */}
               <div>
@@ -177,20 +167,20 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
               )}
 
               {/* Submit Button */}
-             <button 
-  type="submit" 
-  disabled={isSubmitting}
-  className="bg-[#412B1A] text-[#FFF6F0] px-6 py-3 rounded-xl font-medium disabled:opacity-50 flex items-center justify-center gap-2"
->
-  {isSubmitting ? (
-    <>
-      <Loader2 className="w-4 h-4 animate-spin text-[#D5A272]" />
-      <span>Submitting...</span>
-    </>
-  ) : (
-    "Enroll Now"
-  )}
-</button>
+              <button 
+                type="submit" 
+                disabled={isLoading}
+                className="w-full bg-[#412B1A] text-[#FFF6F0] px-6 py-3 rounded-xl font-medium disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-[#D5A272]" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  "Enroll Now"
+                )}
+              </button>
             </form>
           )}
         </div>
