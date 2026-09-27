@@ -2,7 +2,6 @@ import NavBar from '@/src/components/NavBar/NavBar';
 import Hero from '@/src/components/Hero/Hero';
 import FAQSection from '@/src/components/FAQSection';
 import CTASection from '@/src/components/CTASection';
-import Footer from '@/src/components/Footer';
 import ConsultationForm from '../components/ConsultasionForm';
 import PolaroidSuccessSection from '../components/PolaroidSection';
 import CourseIntro from '../components/CourseIntro/CourseIntro';
