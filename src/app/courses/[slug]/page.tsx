@@ -27,6 +27,7 @@ const CoursePage = async ({ params }: CoursePageProps) => {
     0
   ) || 0;
 
+
   return (
     <div className="w-full">
       {/* 1. Ограниченный по ширине контент страницы */}
