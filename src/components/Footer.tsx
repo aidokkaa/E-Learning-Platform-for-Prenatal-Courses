@@ -1,54 +1,185 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
 
-const Footer = () => {
+import React, { useState } from "react";
+import Link from "next/link";
+import { Alex_Brush, Quicksand } from "next/font/google";
+
+const alexBrush = Alex_Brush({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+/* ============================================================
+   ✏️  МЕНЯЙ ТОЛЬКО ЭТИ ДАННЫЕ — стили и вёрстка ниже уже готовы
+   ============================================================ */
+
+const BRAND = {
+  name: "EduPreg",
+  tagline: "Professional education for your journey into motherhood.",
+};
+
+const COLUMNS = [
+  {
+    title: "Platform",
+    links: [
+      { label: "All Courses", href: "#courses" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "About Us", href: "#author" },
+      { label: "Contact", href: "#contacts" },
+    ],
+  },
+];
+
+const NEWSLETTER = {
+  title: "Stay Updated",
+  text: "Tips and news for future parents. No spam.",
+  placeholder: "Your email",
+  success: "Thank you! You are subscribed.",
+};
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+];
+
+/* ============================================================ */
+
+export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [done, setDone] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    // TODO: подключи здесь свою отправку (API-роут, Mailchimp и т.д.)
+    // Сейчас форма только показывает сообщение об успехе.
+    setDone(true);
+    setEmail("");
+  };
+
   return (
-    <footer className="border-t border-[#EAD9CE] bg-[#FFFDFB] py-16 mt-20">
-      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-        
-        {/* Логотип */}
-        <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="text-2xl font-serif italic text-[#412B1A] mb-4 block">
-            EduPreg
-          </Link>
-          <p className="text-[#6E5949] text-sm font-light leading-relaxed">
-            Professional education for your journey into motherhood.
+    <footer className={`${quicksand.className} bg-[#FFFDFB] text-[#4A1E0C]`}>
+      <div className="mx-auto max-w-[1180px] px-6 pb-8 pt-14 lg:px-10 lg:pt-20">
+        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1.4fr] lg:gap-10">
+          {/* Бренд */}
+          <div>
+            <Link
+              href="/"
+              className={`${alexBrush.className} text-[38px] leading-none text-[#4A1E0C]`}
+            >
+              {BRAND.name}
+            </Link>
+            <p className="mt-4 max-w-[280px] text-[15px] leading-[1.7] text-[#6B4A3B]">
+              {BRAND.tagline}
+            </p>
+          </div>
+
+          {/* Колонки со ссылками */}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:grid-cols-2 lg:gap-10">
+            {COLUMNS.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8A6656]">
+                  {col.title}
+                </h3>
+                <ul className="mt-5 space-y-3">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-[15px] text-[#6B4A3B] transition-colors hover:text-[#1F5B58]"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Подписка */}
+          <div>
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8A6656]">
+              {NEWSLETTER.title}
+            </h3>
+            <p className="mt-5 text-[15px] leading-[1.6] text-[#6B4A3B]">
+              {NEWSLETTER.text}
+            </p>
+
+            {done ? (
+              <p className="mt-4 rounded-full bg-[#F7E7DC] px-5 py-3 text-[14px] font-medium text-[#4A1E0C]">
+                {NEWSLETTER.success}
+              </p>
+            ) : (
+              <form onSubmit={handleSubmit} className="relative mt-4">
+                <label htmlFor="footer-email" className="sr-only">
+                  {NEWSLETTER.placeholder}
+                </label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={NEWSLETTER.placeholder}
+                  className="w-full rounded-full border border-[#F0E1D6] bg-white py-3.5 pl-5 pr-14 text-[15px] text-[#4A1E0C] placeholder:text-[#A58B7B] transition focus:border-[#1F5B58] focus:outline-none focus:ring-2 focus:ring-[#1F5B58]/15"
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe"
+                  className="absolute right-1.5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[#1F5B58] text-white transition hover:bg-[#194a48] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F5B58]/40 focus-visible:ring-offset-2"
+                >
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 10h11M11 5.5 15.5 10 11 14.5" />
+                  </svg>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        {/* Нижняя строка */}
+        <div className="mt-14 flex flex-col-reverse items-start justify-between gap-4 border-t border-[#F0E1D6] pt-6 text-[13px] text-[#8A6656] sm:flex-row sm:items-center">
+          <p>
+            &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
-        </div>
 
-        {/* Ссылки */}
-        <div>
-          <h3 className="font-medium mb-6 text-sm text-[#412B1A]">Platform</h3>
-          <ul className="space-y-4 text-sm font-light text-[#6E5949]">
-            <li><Link href="/courses" className="hover:text-[#412B1A] transition">All Courses</Link></li>
-            <li><Link href="/faq" className="hover:text-[#412B1A] transition">FAQ</Link></li>
+          <ul className="flex gap-6">
+            {LEGAL_LINKS.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="transition-colors hover:text-[#1F5B58]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-
-        <div>
-          <h3 className="font-medium mb-6 text-sm text-[#412B1A]">Support</h3>
-          <ul className="space-y-4 text-sm font-light text-[#6E5949]">
-            <li><Link href="/about" className="hover:text-[#412B1A] transition">About Us</Link></li>
-            <li><Link href="/contact" className="hover:text-[#412B1A] transition">Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* Подписка (в тон сайта) */}
-        <div>
-          <h3 className="font-medium mb-6 text-sm text-[#412B1A]">Stay Updated</h3>
-          <input 
-            type="email" 
-            placeholder="Your email" 
-            className="w-full bg-white border border-[#EAD9CE] rounded-full px-4 py-2.5 text-sm mb-4 focus:outline-none focus:border-[#412B1A] transition"
-          />
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-[#EAD9CE] text-sm text-[#6E5949] font-light text-center">
-        © {new Date().getFullYear()} EduPreg. All rights reserved.
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

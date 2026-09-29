@@ -10,7 +10,6 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Логируем ошибку в консоль (в будущем здесь может быть Sentry)
     console.error("Global Application Error:", error);
   }, [error]);
 

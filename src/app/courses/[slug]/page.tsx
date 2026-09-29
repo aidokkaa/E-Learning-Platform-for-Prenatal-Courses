@@ -16,7 +16,6 @@ const CoursePage = async ({ params }: CoursePageProps) => {
   const course = COURSES.find((c) => c.slug === slug);
   if (!course) notFound();
 
-  // 1. Проверяем статус пользователя в Clerk
   const user = await currentUser();
   const enrolledCourses = (user?.publicMetadata?.enrolledCourses as string[]) || [];
   const isEnrolled = enrolledCourses.includes(slug);
@@ -30,10 +29,8 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
   return (
     <div className="w-full">
-      {/* 1. Ограниченный по ширине контент страницы */}
       <div className="max-w-7xl mx-auto px-8 py-12">
         
-        {/* Хлебные крошки / Навигация */}
         <nav className="flex items-center text-sm text-[#6E5949] mb-8 font-light">
           <Link href="/" className="hover:text-[#6e3412] transition">Home</Link>
           <ChevronRight className="w-4 h-4 mx-2 text-[#D5A272]" />
@@ -42,10 +39,9 @@ const CoursePage = async ({ params }: CoursePageProps) => {
           <span className="text-[#412B1A] font-medium">{course.title}</span>
         </nav>
 
-        {/* Двухколоночная сетка */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* ЛЕВАЯ ЧАСТЬ: Основной контент курса */}
+   
           <div className="lg:col-span-2 space-y-9">
             <h1 className="text-4xl sm:text-5xl font-normal leading-[1.2] text-[#412B1A]">
               {course.title}
@@ -72,18 +68,16 @@ const CoursePage = async ({ params }: CoursePageProps) => {
               </div>
             </div>
 
-            {/* Блок модулей (передаем isEnrolled для разблокировки уроков) */}
             <div className="bg-[#FFF6F0] p-8 rounded-[32px] border border-[#EAD9CE]">
               <h2 className="text-2xl font-serif italic text-[#412B1A] mb-8">Course Curriculum</h2>
               <CourseAccordion modules={course.modules} isEnrolled={isEnrolled} />
             </div>
           </div>
 
-          {/* ПРАВАЯ ЧАСТЬ: Сайдбар */}
           <aside className="lg:col-span-1">
             <div className="sticky top-8 space-y-6">
               
-              {/* Карточка цены и кнопка записи */}
+
               <div className="p-8 border border-[#EAD9CE] rounded-[32px] bg-white shadow-sm">
                 <h2 className="text-4xl font-normal text-[#412B1A] mb-4">{course.price}</h2>
                 <div className="text-[#6E5949] mb-8 flex items-center gap-2 font-light">
@@ -102,12 +96,11 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                     <span className="text-lg">♾️</span> <span>Lifetime access to course materials</span>
                   </div>
                 </div>
-                
-                {/* Передаем статус куплен ли курс в кнопку */}
+    
                 <EnrollButton courseSlug={slug} isEnrolled={isEnrolled} />
               </div>
 
-              {/* Навигация по остальным курсам */}
+
               <div className="p-8 border border-[#EAD9CE] rounded-[32px] bg-white shadow-sm">
                 <h3 className="font-serif italic text-[#412B1A] mb-6 flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-[#D5A272]" /> All Courses
@@ -128,17 +121,10 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                   ))}
                 </div>
               </div>
-
             </div>
           </aside>
-
         </div> 
-        {/* Здесь закрылась сетка grid-cols-3 */}
-
       </div> 
-      {/* Здесь закрылся max-w-7xl */}
-
-      {/* 2. Полноширинная форма записи только если пользователь НЕ записан */}
       {!isEnrolled && <EnrollForm courseSlug={slug} />}
     </div>
   );

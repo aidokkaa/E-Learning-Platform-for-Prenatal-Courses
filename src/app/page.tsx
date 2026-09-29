@@ -1,10 +1,8 @@
-import NavBar from '@/src/components/NavBar/NavBar';
 import Hero from '@/src/components/Hero/Hero';
-import FAQSection from '@/src/components/FAQSection';
-import CTASection from '@/src/components/CTASection';
-import ConsultationForm from '../components/ConsultasionForm';
 import PolaroidSuccessSection from '../components/PolaroidSection';
 import CourseIntro from '../components/CourseIntro/CourseIntro';
+import AuthorSection from '../components/AuthorSection';
+import ContactSection from '../components/ContactSection';
 
 export default function Home() {
   return (
@@ -14,8 +12,8 @@ export default function Home() {
       <Hero />
       <PolaroidSuccessSection />
       <CourseIntro/>
-      <CTASection />
-      <ConsultationForm />
+      <AuthorSection/>
+      <ContactSection/>
     </div>
   );
 }

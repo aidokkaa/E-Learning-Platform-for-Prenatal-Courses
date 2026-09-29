@@ -16,7 +16,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Получаем данные из запроса
     const body = await req.json();
     const { courseSlug, courseName } = body;
 

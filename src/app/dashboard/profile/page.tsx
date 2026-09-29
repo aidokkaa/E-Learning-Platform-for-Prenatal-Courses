@@ -5,28 +5,21 @@ import Link from 'next/link';
 import { BookOpen, User, Mail, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default async function AccountPage() {
-  // 1. Получаем текущего пользователя на сервере
   const user = await currentUser();
 
-  // Если пользователь не залогинен, перенаправляем на страницу входа
   if (!user) {
     redirect('/sign-in');
   }
-
-  // 2. Достаем список записанных курсов из publicMetadata
   const enrolledCourses = (user.publicMetadata?.enrolledCourses as string[]) || [];
 
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
-        
-        {/* Заголовок */}
         <div>
           <h1 className="text-3xl font-bold text-slate-900">Personal Account</h1>
           <p className="text-slate-600 mt-1">Manage your profile and access your enrolled courses.</p>
         </div>
 
-        {/* Карточка профиля */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6">
           <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-indigo-50 shadow-inner flex-shrink-0">
             {user.imageUrl ? (
@@ -60,8 +53,6 @@ export default async function AccountPage() {
             </div>
           </div>
         </div>
-
-        {/* Секция с записанными курсами */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">

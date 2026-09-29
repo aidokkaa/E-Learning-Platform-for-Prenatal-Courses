@@ -70,12 +70,10 @@ export function useEnrollment() {
         body: JSON.stringify(payload),
       });
 
-      // Безопасно пытаемся прочитать JSON
       let errorData = null;
       try {
         errorData = await response.json();
       } catch {
-        // Если ответ от сервера не в формате JSON (например, HTML-страница ошибки 500/504)
       }
 
       if (!response.ok) {

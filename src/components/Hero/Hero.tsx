@@ -224,27 +224,10 @@ export default function HeroSection() {
       {/* ===== HEADER ===== */}
       <header className="relative z-40 mx-auto flex w-full max-w-[1180px] items-center justify-between px-5 pt-6 sm:px-6 lg:px-10 lg:pt-7">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#EFE4DC] bg-white text-[11px] font-semibold shadow-sm lg:h-12 lg:w-12 lg:text-[12px]">
-            EP
-          </div>
-          <div className="text-[11px] leading-snug text-[#6B4A3B] lg:text-[12px]">
-            Online courses
-            <br />
-            for future parents
-          </div>
+          
         </div>
 
-        <nav className="hidden items-center gap-11 text-[14.5px] uppercase tracking-[0.06em] text-[#5A2A18] lg:flex">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition hover:opacity-70"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+       
 
         <div className="flex items-center gap-3">
           <div className="flex overflow-hidden rounded-full border-2 border-[#1F5B58]">
