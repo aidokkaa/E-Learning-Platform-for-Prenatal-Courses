@@ -29,7 +29,7 @@ const COLUMNS = [
   {
     title: "Platform",
     links: [
-      { label: "All Courses", href: "#courses" },
+      { label: "All Courses", href: "/courses" },
       { label: "FAQ", href: "#faq" },
     ],
   },

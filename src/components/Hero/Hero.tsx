@@ -124,13 +124,6 @@ const quicksand = Quicksand({
 const PHOTO_SRC =
   "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1400&auto=format&fit=crop";
 
-const NAV = [
-  { href: "#author", label: "Author" },
-  { href: "#program", label: "Program" },
-  { href: "#price", label: "Price" },
-  { href: "#contacts", label: "Contacts" },
-];
-
 
 const MOBILE_MASK =
   "linear-gradient(to bottom, transparent 0%, #000 14%, #000 100%)";
@@ -187,7 +180,6 @@ function PhotoBlob({ sizes }: { sizes: string }) {
 }
 
 export default function HeroSection() {
-  const [lang, setLang] = useState<"ENG" | "UKR">("ENG");
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -226,32 +218,7 @@ export default function HeroSection() {
         <div className="flex items-center gap-2.5">
           
         </div>
-
-       
-
         <div className="flex items-center gap-3">
-          <div className="flex overflow-hidden rounded-full border-2 border-[#1F5B58]">
-            <button
-              onClick={() => setLang("ENG")}
-              className={`px-3.5 py-1.5 text-[12px] font-semibold transition-colors lg:px-4 lg:py-2 lg:text-[13px] ${
-                lang === "ENG"
-                  ? "bg-[#1F5B58] text-white"
-                  : "bg-white text-[#1F5B58]"
-              }`}
-            >
-              ENG
-            </button>
-            <button
-              onClick={() => setLang("UKR")}
-              className={`px-3.5 py-1.5 text-[12px] font-semibold transition-colors lg:px-4 lg:py-2 lg:text-[13px] ${
-                lang === "UKR"
-                  ? "bg-[#1F5B58] text-white"
-                  : "bg-white text-[#1F5B58]"
-              }`}
-            >
-              UKR
-            </button>
-          </div>
 
           <button
             type="button"
@@ -279,21 +246,6 @@ export default function HeroSection() {
             </span>
           </button>
         </div>
-
-        {menuOpen && (
-          <nav className="absolute left-5 right-5 top-full mt-3 rounded-2xl border border-[#EFE4DC] bg-white p-3 shadow-[0_16px_40px_rgba(74,30,12,0.12)] sm:left-6 sm:right-6 lg:hidden">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-xl px-4 py-3 text-[14px] uppercase tracking-[0.06em] text-[#5A2A18] active:bg-[#F7E3D8]"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        )}
       </header>
 
       {/* ===== HERO CONTENT ===== */}
@@ -322,7 +274,7 @@ export default function HeroSection() {
           </p>
 
           <Link
-            href="#program"
+            href='/courses'
             className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1F5B58] px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white lg:px-11 lg:py-[18px] lg:text-[15px] shadow-[0_6px_16px_rgba(31,91,88,0.18)] transition hover:-translate-y-0.5 hover:bg-[#194a48] active:translate-y-0 sm:w-auto lg:mt-8"
           >
             Find Out More
