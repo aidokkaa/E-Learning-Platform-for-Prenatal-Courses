@@ -3,6 +3,7 @@ import PolaroidSuccessSection from '../components/PolaroidSection';
 import CourseIntro from '../components/CourseIntro/CourseIntro';
 import AuthorSection from '../components/AuthorSection';
 import ContactSection from '../components/ContactSection';
+import FreeClassSection from '../components/FreeClassSection';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <PolaroidSuccessSection />
       <CourseIntro/>
       <AuthorSection/>
+      <FreeClassSection/>
       <ContactSection/>
     </div>
   );
