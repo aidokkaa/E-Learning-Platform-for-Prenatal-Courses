@@ -53,7 +53,7 @@ const TEXT = {
   whenLabel: "When:",
   accessQuestion: "How do I access the online class?",
   accessAnswer:
-    "You will receive an email with the link on the day of your class. If for any reason you do not receive it, check your Spam folder or contact hello@example.com",
+    "You will receive an email with the link on the day of your class. If for any reason you do not receive it, check your Spam folder or contact auramamaclub@gmail.com",
   expectTitle: "What to expect?",
   expectItems: [
     "You don't need a camera or microphone: you won't be seen or heard during the class.",

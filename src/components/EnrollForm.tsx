@@ -54,7 +54,7 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
   };
 
   return (
-    <section id="enroll-form" className="w-full bg-[#F7F1EC] py-16 px-6 mt-16 scroll-mt-10 border-t border-[#E8D8CD]">
+    <section id="enroll-form" className="w-full bg-[#FFF6F0] py-16 px-6 scroll-mt-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#9E7A60] bg-[#EFE4DC] px-3 py-1 rounded-full">

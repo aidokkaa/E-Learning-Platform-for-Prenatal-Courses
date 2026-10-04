@@ -166,19 +166,19 @@ const quicksand = Quicksand({
 });
 
 const POLAROIDS = [
-  {
-    src: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=600",
-    alt: "Happy mother with baby",
-    caption: "Mommy, 29 y.o.",
+ {
+     src:"https://images.unsplash.com/photo-1765956807683-ad558e88f23d?auto=format&fit=crop&w=1200&q=80",
+    alt: "Happy family",
+    caption: "New parents",
   },
   {
-    src: "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&q=80&w=600",
+    src: "https://images.unsplash.com/photo-1543342384-1f1350e27861?auto=format&fit=crop&w=1200&q=80",
     alt: "Family with newborn",
     caption: "Katrin & Samuel",
   },
   {
-    src: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=600",
-    alt: "Sleeping baby",
+    src: "https://images.unsplash.com/photo-1530047625168-4b29bfbbe1fc?auto=format&fit=crop&w=1200&q=80",
+    alt: "Happy mother with baby",
     caption: "Precious moment",
   },
 ];
@@ -236,22 +236,22 @@ function Polaroid({
   );
 }
 
-function Stars() {
-  return (
-    <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg
-          key={i}
-          viewBox="0 0 20 20"
-          className="h-3.5 w-3.5 fill-[#E2A676]"
-          aria-hidden="true"
-        >
-          <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8L10 1.5z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
+// function Stars() {
+//   return (
+//     <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+//       {Array.from({ length: 5 }).map((_, i) => (
+//         <svg
+//           key={i}
+//           viewBox="0 0 20 20"
+//           className="h-3.5 w-3.5 fill-[#E2A676]"
+//           aria-hidden="true"
+//         >
+//           <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8L10 1.5z" />
+//         </svg>
+//       ))}
+//     </div>
+//   );
+// }
 
 /* Карточка отзыва */
 function Testimonial({
@@ -294,7 +294,7 @@ function Testimonial({
             <div className="text-[11px] text-[#8A6656]">{meta}</div>
           </div>
         </div>
-        <Stars />
+        {/* <Stars /> */}
       </footer>
     </blockquote>
   );
@@ -306,7 +306,6 @@ export default function PolaroidSuccessSection() {
       className={`${quicksand.className} relative overflow-hidden bg-white py-16 lg:py-24`}
     >
       <div className="relative mx-auto max-w-[1180px] px-6 lg:px-10">
-        {/* Мягкая органическая подложка в цветах hero */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-2 inset-y-6 bg-[#FBF3EC] lg:inset-x-6 lg:inset-y-4"
@@ -322,7 +321,6 @@ export default function PolaroidSuccessSection() {
         />
 
         <div className="relative lg:h-[640px]">
-          {/* ===== Центральный текст ===== */}
           <div className="relative z-20 mx-auto max-w-[640px] px-2 text-center lg:pt-6">
             <p className="mb-4 flex items-center justify-center gap-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8A6656]">
               <span className="h-px w-8 bg-[#DDB99F]" />

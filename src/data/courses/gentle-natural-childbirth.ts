@@ -6,7 +6,7 @@ export const naturalChildBirthCourse:Course={
   description: "Step-by-step preparation for a natural birth experience with focus on comfort, safety, and confidence.",
   duration: "5 modules",
   price: "$70.0",
-  image: "https://images.unsplash.com/photo-1516627145694-382956f66f30?auto=format&fit=crop&q=80&w=400",
+  image: "https://images.unsplash.com/photo-1770831208268-07daeaa6c6c4?auto=format&fit=crop&w=1200&q=80",
   category: ["Pregnancy"],
   modules: [
     {

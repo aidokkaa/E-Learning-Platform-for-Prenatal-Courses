@@ -4,10 +4,10 @@ export const nineMonthPregnancyPlanCourse:Course={
   title: "9-Month Pregnancy Plan",
   slug: "nine-month-pregnancy-plan",
   description: "Your structured roadmap for a healthy pregnancy, from first trimester well-being to final labor preparation.",
-  duration: "8 modules",
-  price: "$89.0",
-  image: "https://images.unsplash.com/photo-1526045436584-b6ca8750aa6a?auto=format&fit=crop&q=80&w=400",
-  category: ["Pregnancy", "Featured"],
+ duration: "8 modules",
+price: "$89.0",
+image: "https://images.unsplash.com/photo-1608293937040-b41543161dba?auto=format&fit=crop&w=1200&q=80",
+category: ["Pregnancy", "Featured"],
   modules: [
     {
       id: "mod-1",

@@ -6,7 +6,7 @@ export const earlyBabyDevCourse:Course={
   description: "Understand your baby's milestones in the first year and learn how to stimulate their healthy growth.",
   duration: "5 modules",
   price: "$55.0",
-  image: "https://images.unsplash.com/photo-1546015720-b8b30df5aa27?auto=format&fit=crop&q=80&w=400",
+  image: "https://images.pexels.com/photos/10190040/pexels-photo-10190040.jpeg?auto=compress&cs=tinysrgb&w=1200",
   category: ["Baby Care"],
   modules: [
     {

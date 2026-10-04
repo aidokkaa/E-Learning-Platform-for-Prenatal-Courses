@@ -6,7 +6,7 @@ export const babyCareSecretsCourse:Course={
   description: "Practical tips on sleep, soothing techniques, and handling common newborn challenges with ease.",
   duration: "4 modules",
   price: "$45.0",
-  image: "https://images.unsplash.com/photo-1515485293833-3fb368bc00a6?auto=format&fit=crop&q=80&w=400",
+  image: "https://images.pexels.com/photos/6849309/pexels-photo-6849309.jpeg?auto=compress&cs=tinysrgb&w=1200",
   category: ["Baby Care", "Featured"],
   modules: [
     {

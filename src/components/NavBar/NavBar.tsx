@@ -70,10 +70,6 @@ const NAV_LINKS = [
   { label: "My account", href: "/dashboard/profile", prefetch: false },
 ];
 
-/* false — всегда показывать круг цвета сайта с первой буквой (единый стиль).
-   true  — показывать фото профиля, если оно есть.
-   Важно: если человек вошёл через Google, Clerk считает фото «загруженным» даже когда это
-   стандартный цветной кружок с буквой от Google, поэтому при true он останется бирюзовым. */
 const USE_PROFILE_PHOTO = false;
 
 /* Аватар: круг цвета сайта с первой буквой (или фото профиля, если USE_PROFILE_PHOTO = true) */
@@ -137,8 +133,6 @@ function AccountActions({ onDone }: { onDone?: () => void }) {
     </div>
   );
 }
-
-/* Карточка с именем и почтой */
 function AccountInfo() {
   const { user } = useUser();
 
@@ -182,13 +176,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isLanding]);
 
-  // Закрываем меню при переходе на другую страницу
   useEffect(() => {
     setMenuOpen(false);
     setAccountOpen(false);
   }, [pathname]);
 
-  // Закрытие по Escape и по клику вне выпадашки аватара
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -226,7 +218,7 @@ const Navbar = () => {
         
         {/* Логотип */}
         <Link href="/" className="text-2xl font-serif italic text-[#412B1A] flex-shrink-0">
-          EduPreg
+          Aura Mama
         </Link>
 
         {/* Меню (десктоп) */}

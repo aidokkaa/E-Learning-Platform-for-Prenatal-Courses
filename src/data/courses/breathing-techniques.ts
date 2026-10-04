@@ -6,7 +6,7 @@ export const breathingTechniquesCourse:Course={
   description: "Master proven breathing methods to manage labor pain, stay calm, and support your baby during delivery.",
   duration: "3 modules",
   price: "$50.0",
-  image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400",
+  image: "https://images.unsplash.com/photo-1758272422634-e8ed8e252a14?auto=format&fit=crop&w=1200&q=80",
   category: ["Pregnancy"],
   modules: [
     {

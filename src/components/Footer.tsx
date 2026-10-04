@@ -21,7 +21,7 @@ const quicksand = Quicksand({
    ============================================================ */
 
 const BRAND = {
-  name: "EduPreg",
+  name: "Aura Mama",
   tagline: "Professional education for your journey into motherhood.",
 };
 
