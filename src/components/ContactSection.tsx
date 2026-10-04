@@ -37,30 +37,17 @@ const CONTACTS: {
   external?: boolean; // открывать в новой вкладке
 }[] = [
   {
-    icon: "telegram",
-    label: "Telegram",
-    value: "@your_username",
-    href: "https://t.me/your_username",
-    external: true,
-  },
-  {
-    icon: "chat",
-    label: "Viber",
-    value: "+380 00 000 00 00",
-    href: "viber://chat?number=%2B380000000000",
-  },
-  {
     icon: "phone",
     label: "Phone",
-    value: "+380 00 000 00 00",
-    href: "tel:+380000000000",
+    value: "+1 773 302 76 14",
+    href: "tel:+1 773 302 76 14"
   },
-  {
-    icon: "mail",
-    label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
-  },
+{
+  icon: "mail",
+  label: "Email",
+  value: "auramamaclub@gmail.com",
+  href: "mailto:auramamaclub@gmail.com",
+},
 ];
 
 /* ============================================================ */

@@ -5,7 +5,7 @@ export const earlyBabyDevCourse:Course={
   slug: "early-baby-development",
   description: "Understand your baby's milestones in the first year and learn how to stimulate their healthy growth.",
   duration: "5 modules",
-  price: "$79.0",
+  price: "$55.0",
   image: "https://images.unsplash.com/photo-1546015720-b8b30df5aa27?auto=format&fit=crop&q=80&w=400",
   category: ["Baby Care"],
   modules: [

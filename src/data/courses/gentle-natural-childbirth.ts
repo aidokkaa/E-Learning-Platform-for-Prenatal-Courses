@@ -5,7 +5,7 @@ export const naturalChildBirthCourse:Course={
   slug: "gentle-natural-childbirth",
   description: "Step-by-step preparation for a natural birth experience with focus on comfort, safety, and confidence.",
   duration: "5 modules",
-  price: "$129.0",
+  price: "$70.0",
   image: "https://images.unsplash.com/photo-1516627145694-382956f66f30?auto=format&fit=crop&q=80&w=400",
   category: ["Pregnancy"],
   modules: [

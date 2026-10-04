@@ -500,13 +500,13 @@ const CourseAccordion = ({ modules = [], isEnrolled = false }: CourseAccordionPr
 
               {/* Заголовок и описание */}
               <span className="text-[11px] font-bold tracking-widest text-[#D5A272] uppercase block mb-1">
-                Урок недоступен
+                Lesson unavailable
               </span>
               <h3 className="text-2xl font-serif text-[#412B1A] font-semibold mb-3">
                 {modalState.title}
               </h3>
               <p className="text-sm text-[#6E5949] leading-relaxed mb-6">
-                Этот урок доступен только зарегистрированным участникам курса. Пожалуйста, запишитесь на курс, чтобы получить полный доступ ко всем материалам и видеоурокам.
+                This lesson is available only to registered course participants. Please enroll in the course to get full access to all materials and video lessons.
               </p>
 
               {/* Кнопки действий */}
@@ -516,13 +516,13 @@ const CourseAccordion = ({ modules = [], isEnrolled = false }: CourseAccordionPr
                   onClick={() => setModalState(null)}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#412B1A] hover:bg-[#2e1f13] text-[#FFF6F0] py-3.5 px-6 rounded-2xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-[1.02]"
                 >
-                  Записаться на курс <ArrowRight className="w-4 h-4 text-[#D5A272]" />
+                  Enroll in the course <ArrowRight className="w-4 h-4 text-[#D5A272]" />
                 </a>
                 <button
                   onClick={() => setModalState(null)}
                   className="w-full py-2.5 text-xs text-[#6E5949] hover:text-[#412B1A] transition-colors"
                 >
-                  Закрыть
+                  Close
                 </button>
               </div>
             </div>

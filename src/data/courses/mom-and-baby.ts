@@ -5,7 +5,7 @@ export const momAndBabyCourse: Course = {
   slug: "mom-and-baby-theory",
   description: "A comprehensive guide to newborn care, covering essential parenting theory and daily routine management.",
   duration: "4 modules",
-  price: "$149.0",
+  price: "$65.0",
   image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=400",
   category: ["Baby Care"],
   modules: [

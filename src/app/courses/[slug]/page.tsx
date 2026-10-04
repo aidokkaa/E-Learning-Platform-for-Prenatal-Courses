@@ -90,7 +90,7 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                     <span className="text-lg">🎧</span> <span>Instructor support</span>
                   </div>
                   <div className="flex items-start gap-3 text-sm text-[#6E5949] font-light">
-                    <span className="text-lg">🐞</span> <span>Help in finding and fixing errors</span>
+                   <span className="text-lg">🤍</span> <span>Supportive mamas chat</span>
                   </div>
                   <div className="flex items-start gap-3 text-sm text-[#6E5949] font-light">
                     <span className="text-lg">♾️</span> <span>Lifetime access to course materials</span>

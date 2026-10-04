@@ -21,16 +21,13 @@ const quicksand = Quicksand({
   display: "swap",
 });
 
-/* ============================================================
-   ✏️️  НАСТРОЙКИ И ТЕКСТЫ
-   ============================================================ */
+
 
 const SUBMIT_URL = "/api/free-class";
 
 const MIN_DAYS_AHEAD = 3;
 const MAX_DAYS_AHEAD = 60;
 
-// Ровно 2 часа на выбор
 const TIME_SLOTS = [
   { value: "10:00", label: "10:00 AM" },
   { value: "14:00", label: "2:00 PM" },
@@ -49,7 +46,6 @@ const TEXT = {
     "By registering you agree to receive emails about this class. No spam, ever.",
   errorGeneral: "Something went wrong. Please try again in a moment.",
 
-  // Экран после отправки
   successTitle: "Thank you for registering!",
   successText:
     "Your place is reserved. We will send you the link to the live class by email on the day you chose.",
@@ -97,7 +93,6 @@ const formatLong = (value: string) => {
   });
 };
 
-// Форматирование интервала (2 часа продолжительность)
 const formatClassTime = (timeStr: string) => {
   return timeStr === "10:00" ? "10:00 AM – 12:00 PM" : "2:00 PM – 4:00 PM";
 };
@@ -169,7 +164,7 @@ export default function FreeClassSection() {
     phone: "",
     stage: "",
     date: "",
-    time: "10:00", // По умолчанию выбрано 10:00 AM
+    time: "10:00", 
   });
   const [honeypot, setHoneypot] = useState("");
   const [errors, setErrors] = useState<Errors>({});
@@ -249,14 +244,13 @@ export default function FreeClassSection() {
       id="free-class"
       className={`${quicksand.className} relative scroll-mt-20 overflow-hidden bg-white px-5 py-16 lg:py-24`}
     >
-      {/* Подложка */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-10 h-[420px] w-[min(920px,92%)] -translate-x-1/2 rounded-[50%] bg-[#FBF3EC] lg:top-14 lg:h-[480px]"
       />
 
       <div className="relative mx-auto max-w-[860px]">
-        {/* Заголовок */}
+
         <div className="mx-auto mb-10 max-w-[560px] text-center lg:mb-12">
           <p className="mb-4 flex items-center justify-center gap-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8A6656]">
             <span className="h-px w-8 bg-[#DDB99F]" />
@@ -479,7 +473,7 @@ export default function FreeClassSection() {
                     autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setField("phone", e.target.value)}
-                    placeholder="+380 00 000 00 00"
+                    placeholder="+1 000 000 00 00"
                     aria-invalid={!!errors.phone}
                     className={`${inputClass} ${fieldBorder("phone")}`}
                   />

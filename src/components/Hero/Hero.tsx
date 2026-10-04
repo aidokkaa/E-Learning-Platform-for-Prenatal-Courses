@@ -38,7 +38,6 @@ function Blobs({ mask }: { mask?: string }) {
           d="M410,0 C300,150 100,350 30,650 C5,740 10,830 60,890 C100,940 170,960 240,950 C330,940 400,915 460,890 C600,830 800,760 1000,690 L1000,0 Z"
           fill="#F4E3D8"
         />
-        {/* Тёмный блоб: swoosh справа, уходит под фото */}
         <path
           d="M300,290 C500,235 800,255 1000,300 L1000,757 C850,830 650,880 500,889 C420,893 350,880 300,850 Z"
           fill="#DDB99F"
@@ -80,7 +79,6 @@ export default function HeroSection() {
     <section
       className={`${quicksand.className} relative flex flex-col overflow-hidden bg-[#FFFDFB] text-[#4A1E0C] lg:min-h-[780px]`}
     >
-      {/* Скрытый SVG с маской для фотографии (органическая форма) */}
       <svg width="0" height="0" className="absolute" aria-hidden="true">
         <defs>
           <clipPath id="photoBlob" clipPathUnits="objectBoundingBox">
@@ -88,8 +86,6 @@ export default function HeroSection() {
           </clipPath>
         </defs>
       </svg>
-
-      {/* Верхняя полоска */}
       <div className="absolute left-0 top-0 z-30 h-[6px] w-full bg-[#4A2A1E]" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-[54.5vw] max-w-[760px] lg:block">
         <Blobs />
@@ -141,8 +137,6 @@ export default function HeroSection() {
           </button>
         </div>
       </header>
-
-      {/* ===== HERO CONTENT ===== */}
       <div className="relative z-20 mx-auto flex w-full max-w-[1180px] px-5 pb-6 pt-10 sm:px-6 lg:flex-1 lg:items-center lg:px-10 lg:pb-8 lg:pt-8">
         <div className="w-full max-w-[430px] lg:max-w-[520px] lg:pl-[4vw]">
           <p className="mb-2 text-[16px] text-[#7A5646] lg:text-[19px]">
@@ -163,8 +157,7 @@ export default function HeroSection() {
             <span className="mx-[-0.15em] whitespace-nowrap rounded-full bg-[#F7E3D8] px-[0.3em] py-[0.05em]">
               2 weeks
             </span>{" "}
-            you will receive all the most important information about pregnancy
-            with open access for 9 months!
+        you will receive all the most important information about pregnancy with lifetime access!
           </p>
 
           <Link
@@ -174,7 +167,7 @@ export default function HeroSection() {
             Find Out More
           </Link>
           <p className="mt-4 text-[13px] text-[#6B4A3B] lg:mt-6 lg:text-[15px]">
-            Trusted by <span className="font-semibold">2,000+</span> future
+            Trusted by <span className="font-semibold">450+</span> future
             mothers
           </p>
         </div>

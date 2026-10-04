@@ -50,8 +50,7 @@ const NEWSLETTER = {
 };
 
 const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" }
 ];
 
 /* ============================================================ */

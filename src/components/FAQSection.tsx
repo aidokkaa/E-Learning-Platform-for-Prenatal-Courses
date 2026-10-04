@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: "How long do I have access to the materials?",
-    a: "After payment you get open access for 9 months. You can return to any lesson as many times as you need and study at your own pace.",
+a: "After payment you get lifetime access. You can return to any lesson as many times as you need and study at your own pace.",
   },
   {
     q: "How do I get access after payment?",
@@ -61,10 +61,6 @@ const FAQS = [
   {
     q: "Can I ask the author a question?",
     a: "Yes. If you have questions about the material, you can contact us through the contact form or messenger, and we will answer as soon as possible.",
-  },
-  {
-    q: "Which payment methods do you accept?",
-    a: "You can pay with a bank card. If you prefer another way to pay, contact us and we will suggest an option.",
   },
 ];
 
