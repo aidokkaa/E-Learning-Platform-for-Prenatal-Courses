@@ -66,9 +66,6 @@ const TEXT = {
 };
 
 const INFO_CHIPS = ["Online", "2 hours", "Free"];
-
-/* ============================================================ */
-
 type Status = "idle" | "submitting" | "success" | "error";
 type Errors = Partial<Record<"name" | "email" | "phone" | "stage" | "date" | "time", string>>;
 
@@ -96,8 +93,6 @@ const formatLong = (value: string) => {
 const formatClassTime = (timeStr: string) => {
   return timeStr === "10:00" ? "10:00 AM – 12:00 PM" : "2:00 PM – 4:00 PM";
 };
-
-// Расчет дат для календаря
 const getEventDates = (dateStr: string, timeStr: string) => {
   const [y, m, d] = dateStr.split("-").map(Number);
   const h = timeStr === "10:00" ? 10 : 14;
@@ -274,11 +269,8 @@ export default function FreeClassSection() {
             {TEXT.price}
           </p>
         </div>
-
-        {/* Карточка */}
         <div className="rounded-[32px] border border-[#F0E1D6] bg-[#FFFDFB] px-5 py-8 shadow-[0_30px_70px_rgba(74,30,12,0.10)] sm:px-10 sm:py-10 lg:px-14 lg:py-12">
           {status === "success" ? (
-            /* ===== ПОСЛЕ ОТПРАВКИ ===== */
             <div aria-live="polite">
               <div className="text-center">
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#1F5B58] text-white shadow-[0_8px_20px_rgba(31,91,88,0.25)]">
@@ -303,8 +295,6 @@ export default function FreeClassSection() {
                 <p className="mx-auto mt-3 max-w-[440px] text-[15px] leading-[1.7] text-[#6B4A3B] lg:text-[16px]">
                   {TEXT.successText}
                 </p>
-
-                {/* Добавление в календарь */}
                 <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
                     href={getGoogleCalendarUrl(form.date, form.time)}
@@ -388,7 +378,6 @@ export default function FreeClassSection() {
               </div>
             </div>
           ) : (
-            /* ===== ФОРМА ===== */
             <form onSubmit={handleSubmit} noValidate>
               <div className="text-center">
                 <h3
@@ -413,7 +402,6 @@ export default function FreeClassSection() {
               </div>
 
               <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                {/* Имя */}
                 <div>
                   <label
                     htmlFor="fc-name"
@@ -435,8 +423,6 @@ export default function FreeClassSection() {
                     <p className="mt-1.5 text-[13px] text-[#C4705A]">{errors.name}</p>
                   )}
                 </div>
-
-                {/* Email */}
                 <div>
                   <label
                     htmlFor="fc-email"
@@ -458,8 +444,6 @@ export default function FreeClassSection() {
                     <p className="mt-1.5 text-[13px] text-[#C4705A]">{errors.email}</p>
                   )}
                 </div>
-
-                {/* Телефон */}
                 <div>
                   <label
                     htmlFor="fc-phone"
@@ -481,8 +465,6 @@ export default function FreeClassSection() {
                     <p className="mt-1.5 text-[13px] text-[#C4705A]">{errors.phone}</p>
                   )}
                 </div>
-
-                {/* Срок беременности */}
                 <div>
                   <label
                     htmlFor="fc-stage"
@@ -534,10 +516,7 @@ export default function FreeClassSection() {
                     <p className="mt-1.5 text-[13px] text-[#C4705A]">{errors.stage}</p>
                   )}
                 </div>
-
-                {/* Блок даты и времени */}
                 <div className="grid gap-5 sm:col-span-2 sm:grid-cols-2">
-                  {/* Выбор даты */}
                   <div>
                     <label
                       htmlFor="fc-date"
@@ -565,8 +544,6 @@ export default function FreeClassSection() {
                       )
                     )}
                   </div>
-
-                  {/* Выбор времени: ровно 2 опции */}
                   <div>
                     <label
                       htmlFor="fc-time"
@@ -607,8 +584,6 @@ export default function FreeClassSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Ловушка для спам-ботов */}
               <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
                 <label htmlFor="fc-company">Company</label>
                 <input

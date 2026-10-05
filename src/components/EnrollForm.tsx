@@ -22,7 +22,6 @@ interface EnrollFormProps {
 }
 
 const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
-  // Импортируем наш кастомный хук
   const { enroll, isLoading, error: apiError, isSuccess } = useEnrollment();
 
   const {
@@ -101,8 +100,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
     <span>{apiError}</span>
   </div>
 )}
-
-              {/* Name */}
               <div>
                 <label className="block text-xs font-medium text-[#7A6251] uppercase mb-1">
                   Full Name
@@ -117,8 +114,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
                   <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>
                 )}
               </div>
-
-              {/* Email */}
               <div>
                 <label className="block text-xs font-medium text-[#7A6251] uppercase mb-1">
                   Email Address
@@ -133,8 +128,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
                   <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
                 )}
               </div>
-
-              {/* Phone */}
               <div>
                 <label className="block text-xs font-medium text-[#7A6251] uppercase mb-1">
                   Phone Number
@@ -149,8 +142,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
                   <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
                 )}
               </div>
-
-              {/* Checkbox */}
               <div className="flex items-start gap-2 pt-2">
                 <input
                   {...register("agreeTerms")}
@@ -165,8 +156,6 @@ const EnrollForm = ({ courseSlug }: EnrollFormProps) => {
               {errors.agreeTerms && (
                 <p className="text-red-500 text-xs">{errors.agreeTerms.message}</p>
               )}
-
-              {/* Submit Button */}
               <button 
                 type="submit" 
                 disabled={isLoading}

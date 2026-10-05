@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       subject: `Enrollment Application Received - ${displayCourseName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
-          <h2 style="color: #2563eb;">Application Received! 🎉</h2>
+          <h2 style="color: #2563eb;">Application Received! </h2>
           <p>Hello ${user.firstName || "Student"},</p>
           <p>Thank you for applying for the course: <strong>${displayCourseName}</strong>.</p>
           
@@ -72,11 +72,11 @@ export async function POST(req: Request) {
           <ol style="padding-left: 20px;">
             <li style="margin-bottom: 10px;">
               <strong>Complete Payment:</strong> Please transfer the payment amount to our official details:
-              <br/><em>Bank: Zelle / Kaspi / Bank Transfer</em>
-              <br/><em>Account / Phone: +1 (555) 019-2834</em>
+              <br/><em>Bank: Zelle / Bank Transfer</em>
+              <br/><em>Account / Phone: +1 (773) 302-7614</em>
             </li>
             <li style="margin-bottom: 10px;">
-              <strong>Send Payment Receipt:</strong> Reply directly to this email or send a screenshot of your receipt to <code>support@yourdomain.com</code>.
+              <strong>Send Payment Receipt:</strong> Reply directly to this email or send a screenshot of your receipt to <code>auramamaclub@gmail.com</code>.
             </li>
             <li style="margin-bottom: 10px;">
               <strong>Verification:</strong> Our manager will manually review your receipt within 24 hours.
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
             </p>
           </div>
           
-          <p style="margin-top: 30px;">Best regards,<br/><strong>EduPreg Support Team</strong></p>
+          <p style="margin-top: 30px;">Best regards,<br/><strong>Aura Mama Support Team</strong></p>
         </div>
       `,
     });

@@ -23,7 +23,6 @@ export interface Lesson {
 }
 
 export interface FAQdata {
-    id:number,
-    question:string,
-    answer:string
+  q: string;
+  a: string;
 }

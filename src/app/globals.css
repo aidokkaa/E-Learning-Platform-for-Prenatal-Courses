@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFF6F0; /* Ваш кремовый цвет */
-  --foreground: #412B1A; /* Ваш коричневый текст */
+  --background: #FFF6F0; 
+  --foreground: #412B1A; 
 }
 
 @theme inline {

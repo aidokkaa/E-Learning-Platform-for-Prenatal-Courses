@@ -56,7 +56,6 @@ const CoursesCatalogPage = () => {
               href={`/courses/${course.slug}`}
               className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-[#F0E1D6] bg-white p-4 shadow-[0_10px_30px_rgba(74,30,12,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DDB99F] hover:shadow-[0_24px_50px_rgba(74,30,12,0.10)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F5B58]/40"
             >
-              {/* Тонкая акцентная линия сверху при наведении */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-x-8 top-0 z-10 h-[3px] origin-center scale-x-0 rounded-b-full bg-[#1F5B58] transition-transform duration-300 group-hover:scale-x-100"

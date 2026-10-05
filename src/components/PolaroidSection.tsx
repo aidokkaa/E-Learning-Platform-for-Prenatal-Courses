@@ -1,148 +1,3 @@
-// "use client";
-
-// import Image from "next/image";
-// import Link from "next/link";
-// import { Alex_Brush, Montserrat } from "next/font/google";
-
-// const alexBrush = Alex_Brush({
-//   weight: "400",
-//   subsets: ["latin"],
-//   display: "swap",
-// });
-
-// const montserrat = Montserrat({
-//   weight: ["200", "300", "400"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
-
-// export default function PolaroidSuccessSection() {
-//   return (
-//     <section className="bg-white pt-16 md:pt-24 pb-16 relative overflow-hidden">
-//       <div className="max-w-6xl mx-auto px-6 relative">
-        
-//         {/* Главный контейнер с фиксированной высотой для десктопа */}
-//         <div className="relative min-h-[520px] flex flex-col items-center justify-start">
-          
-//           {/* Полароид 1 (Слева сверху) */}
-//           <div className="hidden md:block absolute left-0 lg:left-2 top-4 bg-white p-2.5 pb-4 rounded-xs shadow-md border border-black/5 transform -rotate-6 hover:rotate-0 hover:scale-105 transition duration-300 w-44 lg:w-48 z-10">
-//             <div className="relative w-full aspect-square bg-[#FBF5F0] overflow-hidden mb-2 rounded-xs">
-//               <Image
-//                 src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=600"
-//                 alt="Happy mother with baby"
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             <p className="text-center font-serif italic text-[11px] text-[#6E5949]">
-//               Mommy 29 Y.O.
-//             </p>
-//           </div>
-
-//           {/* Полароид 2 (Справа сверху) */}
-//           <div className="hidden md:block absolute right-0 lg:right-2 top-6 bg-white p-2.5 pb-4 rounded-xs shadow-md border border-black/5 transform rotate-6 hover:rotate-0 hover:scale-105 transition duration-300 w-44 lg:w-48 z-10">
-//             <div className="relative w-full aspect-square bg-[#FBF5F0] overflow-hidden mb-2 rounded-xs">
-//               <Image
-//                 src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&q=80&w=600"
-//                 alt="Family with newborn"
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             <p className="text-center font-serif italic text-[11px] text-[#6E5949]">
-//               Katrin & Samuel
-//             </p>
-//           </div>
-
-//           {/* Центральный заголовок, подзаголовок и кнопка */}
-//           <div className="text-center max-w-lg lg:max-w-xl mx-auto z-20 px-4 pt-2">
-//             {/* <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#412B1A] leading-snug mb-3 tracking-tight">
-//               Prepare Your Mind & Body <br />
-//               for a <span className="italic font-serif text-[#E2A676]">Healthy Pregnancy</span>
-//             </h2> */}
-//           <h2 className={`${montserrat.className} text-2xl sm:text-3xl lg:text-4xl font-extralight text-[#3A3330] leading-relaxed tracking-tight`}>
-//   Prepare Your Mind &amp; Body <br />
-//   for a{" "}
-//   <span className={`${alexBrush.className} text-[#E26D85] text-4xl sm:text-5xl lg:text-6xl font-normal align-baseline ml-1`}>
-//     Healthy Pregnancy
-//   </span>
-// </h2>        
-//             <div className="mt-6 mb-12">
-//               <Link
-//                 href="#courses"
-//                 className="inline-block px-7 py-2.5 bg-[#E2A676] hover:bg-[#d49462] text-white font-medium rounded-full text-xs sm:text-sm shadow-xs hover:shadow transition duration-200 relative z-30"
-//               >
-//                 Explore Courses
-//               </Link>
-//             </div>
-//           </div>
-
-//           {/* Отзыв 1 (Слева снизу) */}
-//           <div className="hidden md:block absolute left-[3%] bottom-6 bg-[#FFF9F5] p-4 rounded-xl shadow-xs border border-[#F2DFD3] max-w-[230px] transform -rotate-2 hover:rotate-0 transition duration-300 z-10">
-//             <p className="text-[11px] lg:text-xs text-[#412B1A] leading-relaxed">
-//               &quot;The prenatal yoga classes kept me energized and calm through my second trimester. Highly recommend!&quot;
-//             </p>
-//             <span className="block mt-1.5 text-[10px] font-medium text-[#D5A272]">— Anna, 28 weeks</span>
-//           </div>
-
-//           {/* Полароид 3 (Центр снизу — опушен вниз под кнопку) */}
-//           <div className="hidden md:block absolute left-[50%] -translate-x-[50%] top-[310px] lg:top-[290px] bg-white p-2.5 pb-4 rounded-xs shadow-md border border-black/5 transform rotate-2 hover:rotate-0 hover:scale-105 transition duration-300 w-40 lg:w-44 z-10">
-//             <div className="relative w-full aspect-square bg-[#FBF5F0] overflow-hidden mb-2 rounded-xs">
-//               <Image
-//                 src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=600"
-//                 alt="Sleeping baby"
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             <p className="text-center font-serif italic text-[11px] text-[#6E5949]">
-//               Precious Moment
-//             </p>
-//           </div>
-
-//           {/* Отзыв 2 (Справа снизу) */}
-//           <div className="hidden md:block absolute right-[3%] bottom-6 bg-[#FFF9F5] p-4 rounded-xl shadow-xs border border-[#F2DFD3] max-w-[230px] transform rotate-3 hover:rotate-0 transition duration-300 z-10">
-//             <p className="text-[11px] lg:text-xs text-[#412B1A] leading-relaxed">
-//               &quot;Breathing techniques learned here made my delivery so much smoother than I imagined. Thank you!&quot;
-//             </p>
-//             <span className="block mt-1.5 text-[10px] font-medium text-[#D5A272]">— Love, Mina</span>
-//           </div>
-
-//           {/* Адаптив для мобилок */}
-//           <div className="flex md:hidden flex-wrap justify-center gap-4 mt-4">
-//             <div className="bg-white p-2 pb-3 rounded-xs shadow-xs border border-black/5 w-36 transform -rotate-3">
-//               <div className="relative w-full aspect-square overflow-hidden mb-1">
-//                 <Image
-//                   src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=600"
-//                   alt="Mommy"
-//                   fill
-//                   className="object-cover"
-//                 />
-//               </div>
-//               <p className="text-center font-serif italic text-[10px] text-[#6E5949]">Mommy 29 Y.O.</p>
-//             </div>
-
-//             <div className="bg-white p-2 pb-3 rounded-xs shadow-xs border border-black/5 w-36 transform rotate-3">
-//               <div className="relative w-full aspect-square overflow-hidden mb-1">
-//                 <Image
-//                   src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&q=80&w=600"
-//                   alt="Family"
-//                   fill
-//                   className="object-cover"
-//                 />
-//               </div>
-//               <p className="text-center font-serif italic text-[10px] text-[#6E5949]">Katrin & Samuel</p>
-//             </div>
-//           </div>
-
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// }
-// "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Alex_Brush, Comfortaa, Quicksand } from "next/font/google";
@@ -169,12 +24,12 @@ const POLAROIDS = [
  {
      src:"https://images.unsplash.com/photo-1765956807683-ad558e88f23d?auto=format&fit=crop&w=1200&q=80",
     alt: "Happy family",
-    caption: "New parents",
+    caption: "Growing Together",
   },
   {
     src: "https://images.unsplash.com/photo-1543342384-1f1350e27861?auto=format&fit=crop&w=1200&q=80",
     alt: "Family with newborn",
-    caption: "Katrin & Samuel",
+    caption: "A New Beginning",
   },
   {
     src: "https://images.unsplash.com/photo-1530047625168-4b29bfbbe1fc?auto=format&fit=crop&w=1200&q=80",
@@ -195,8 +50,6 @@ const TESTIMONIALS = [
     meta: "New mom",
   },
 ];
-
-/* Полароид: скотч сверху, мягкая тень, подпись рукописным шрифтом */
 function Polaroid({
   src,
   alt,
@@ -235,25 +88,6 @@ function Polaroid({
     </figure>
   );
 }
-
-// function Stars() {
-//   return (
-//     <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-//       {Array.from({ length: 5 }).map((_, i) => (
-//         <svg
-//           key={i}
-//           viewBox="0 0 20 20"
-//           className="h-3.5 w-3.5 fill-[#E2A676]"
-//           aria-hidden="true"
-//         >
-//           <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8L10 1.5z" />
-//         </svg>
-//       ))}
-//     </div>
-//   );
-// }
-
-/* Карточка отзыва */
 function Testimonial({
   text,
   name,
@@ -294,7 +128,6 @@ function Testimonial({
             <div className="text-[11px] text-[#8A6656]">{meta}</div>
           </div>
         </div>
-        {/* <Stars /> */}
       </footer>
     </blockquote>
   );
@@ -358,8 +191,6 @@ export default function PolaroidSuccessSection() {
               Explore Courses
             </Link>
           </div>
-
-          {/* ===== ДЕСКТОП: раскладка вокруг текста ===== */}
           <div className="absolute left-0 top-6 z-10 hidden w-[170px] lg:block xl:left-2 xl:w-[190px]">
             <Polaroid {...POLAROIDS[0]} rotate="-rotate-6" />
           </div>
@@ -379,8 +210,6 @@ export default function PolaroidSuccessSection() {
           <div className="absolute bottom-14 right-[1%] z-10 hidden w-[250px] lg:block xl:right-[3%] xl:w-[265px]">
             <Testimonial {...TESTIMONIALS[1]} rotate="rotate-2" />
           </div>
-
-          {/* ===== МОБИЛЬНЫЕ / ПЛАНШЕТЫ ===== */}
           <div className="relative z-10 mt-12 lg:hidden">
             <div className="mx-auto flex max-w-[520px] flex-wrap justify-center gap-x-5 gap-y-7">
               <div className="w-[44%] max-w-[190px]">

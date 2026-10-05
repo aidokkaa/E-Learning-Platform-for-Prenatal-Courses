@@ -2,7 +2,7 @@ import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BookOpen, User, Mail, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { BookOpen, Mail, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import { Comfortaa, Quicksand } from 'next/font/google';
 
 const comfortaa = Comfortaa({
@@ -40,8 +40,6 @@ export default async function AccountPage() {
             Manage your profile and access your enrolled courses.
           </p>
         </div>
-
-        {/* Карточка профиля */}
         <div className="flex flex-col items-center gap-5 rounded-[24px] border border-[#F0E1D6] bg-white p-5 shadow-[0_10px_30px_rgba(74,30,12,0.05)] sm:flex-row sm:items-center sm:gap-6 sm:p-6">
           <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full border-[3px] border-[#F4E3D8] shadow-[0_8px_20px_rgba(74,30,12,0.12)]">
             {USE_PROFILE_PHOTO && user.imageUrl ? (

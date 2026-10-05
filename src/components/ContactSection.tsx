@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Comfortaa, Quicksand } from "next/font/google";
 
 const comfortaa = Comfortaa({
@@ -15,10 +15,6 @@ const quicksand = Quicksand({
   display: "swap",
 });
 
-/* ============================================================
-   ✏️  МЕНЯЙ ТОЛЬКО ЭТИ ДАННЫЕ — стили и логика ниже уже готовы
-   ============================================================ */
-
 const TEXT = {
   title: "Contact Us",
   subtitle: "For payment of the course or questions of interest",
@@ -32,9 +28,9 @@ type IconName = "telegram" | "chat" | "phone" | "mail";
 const CONTACTS: {
   icon: IconName;
   label: string;
-  value: string; // что видит человек
-  href: string; // куда ведёт
-  external?: boolean; // открывать в новой вкладке
+  value: string; 
+  href: string; 
+  external?: boolean; 
 }[] = [
   {
     icon: "phone",
@@ -49,8 +45,6 @@ const CONTACTS: {
   href: "mailto:auramamaclub@gmail.com",
 },
 ];
-
-/* ============================================================ */
 
 function Icon({ name }: { name: IconName }) {
   const common = {
@@ -94,8 +88,8 @@ function Icon({ name }: { name: IconName }) {
 }
 
 export default function ContactSection() {
-  const [open, setOpen] = useState(false); // модалка в DOM
-  const [shown, setShown] = useState(false); // для плавной анимации
+  const [open, setOpen] = useState(false); 
+  const [shown, setShown] = useState(false); 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -108,8 +102,6 @@ export default function ContactSection() {
       triggerRef.current?.focus();
     }, 200);
   }, []);
-
-  // При открытии: плавное появление, блокировка прокрутки, фокус на крестик
   useEffect(() => {
     if (!open) return;
     const id = requestAnimationFrame(() => setShown(true));
@@ -123,7 +115,6 @@ export default function ContactSection() {
     };
   }, [open]);
 
-  // Закрытие по Escape
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -138,26 +129,21 @@ export default function ContactSection() {
       id="contacts"
       className={`${quicksand.className} relative flex min-h-[640px] scroll-mt-20 items-center justify-center overflow-hidden bg-white px-5 pb-16 pt-24 lg:min-h-[720px] lg:pb-14`}
     >
-      {/* Фоновые блобы (закрыты внутри секции, к верху и низу не прилипают) */}
       <svg
         aria-hidden="true"
         viewBox="0 0 1000 600"
         preserveAspectRatio="none"
         className="pointer-events-none absolute inset-0 h-full w-full"
       >
-        {/* Светлый — справа */}
         <path
           d="M1000,110 C960,140 890,215 820,250 C760,280 700,300 640,320 L500,330 L500,520 C560,545 600,566 700,570 C850,575 950,562 1000,545 Z"
           fill="#F8E6DE"
         />
-        {/* Тёмный — слева */}
         <path
           d="M0,165 C0,140 60,120 130,122 C260,125 420,175 520,215 C600,250 640,300 640,400 C640,470 585,500 570,520 C560,540 545,570 470,572 C300,578 100,555 0,510 Z"
           fill="#E3C9B5"
         />
       </svg>
-
-      {/* Карточка */}
       <div className="relative z-10 w-full max-w-[740px] rounded-[32px] bg-[#FFFDFB] px-6 py-12 text-center shadow-[0_30px_70px_rgba(74,30,12,0.12)] sm:rounded-[40px] sm:px-12 sm:py-14">
         <h2
           className={`${comfortaa.className} font-normal uppercase leading-[1.1] tracking-[0.02em] text-[#4A1E0C]`}
@@ -180,8 +166,6 @@ export default function ContactSection() {
           {TEXT.button}
         </button>
       </div>
-
-      {/* ===== Модальное окно ===== */}
       {open && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center px-5"
@@ -189,15 +173,12 @@ export default function ContactSection() {
           aria-modal="true"
           aria-labelledby="contact-modal-title"
         >
-          {/* Затемнение (клик закрывает) */}
           <div
             onClick={closeModal}
             className={`absolute inset-0 bg-[#2B1409]/45 backdrop-blur-[3px] transition-opacity duration-200 ${
               shown ? "opacity-100" : "opacity-0"
             }`}
           />
-
-          {/* Панель */}
           <div
             className={`relative w-full max-w-[440px] rounded-[30px] bg-[#FFFDFB] p-7 shadow-[0_40px_90px_rgba(74,30,12,0.3)] transition-all duration-200 ease-out sm:p-8 ${
               shown

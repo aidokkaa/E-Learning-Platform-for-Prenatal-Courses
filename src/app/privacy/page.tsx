@@ -120,8 +120,6 @@ export default function PrivacyPage() {
             </li>
           </ol>
         </nav>
-
-        {/* Заголовок */}
         <header className="mb-10 lg:mb-12">
           <p className="mb-4 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8A6656]">
             <span className="h-px w-8 bg-[#DDB99F]" />
@@ -137,8 +135,6 @@ export default function PrivacyPage() {
             Last updated: {LAST_UPDATED}
           </p>
         </header>
-
-        {/* Разделы */}
         <div className="space-y-9">
           {SECTIONS.map((section) => (
             <section key={section.title}>

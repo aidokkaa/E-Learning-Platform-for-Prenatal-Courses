@@ -15,11 +15,6 @@ const quicksand = Quicksand({
   weight: ["400", "500", "600"],
   display: "swap",
 });
-
-/* ============================================================
-   ✏️  МЕНЯЙ ТОЛЬКО ЭТИ ДАННЫЕ — стили и вёрстка ниже уже готовы
-   ============================================================ */
-
 const BRAND = {
   name: "Aura Mama",
   tagline: "Professional education for your journey into motherhood.",
@@ -52,9 +47,6 @@ const NEWSLETTER = {
 const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy" }
 ];
-
-/* ============================================================ */
-
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
@@ -62,9 +54,6 @@ export default function Footer() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim()) return;
-
-    // TODO: подключи здесь свою отправку (API-роут, Mailchimp и т.д.)
-    // Сейчас форма только показывает сообщение об успехе.
     setDone(true);
     setEmail("");
   };
@@ -73,7 +62,6 @@ export default function Footer() {
     <footer className={`${quicksand.className} bg-[#FFFDFB] text-[#4A1E0C]`}>
       <div className="mx-auto max-w-[1180px] px-6 pb-8 pt-14 lg:px-10 lg:pt-20">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1.4fr] lg:gap-10">
-          {/* Бренд */}
           <div>
             <Link
               href="/"
@@ -85,8 +73,6 @@ export default function Footer() {
               {BRAND.tagline}
             </p>
           </div>
-
-          {/* Колонки со ссылками */}
           <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:grid-cols-2 lg:gap-10">
             {COLUMNS.map((col) => (
               <div key={col.title}>
@@ -108,8 +94,6 @@ export default function Footer() {
               </div>
             ))}
           </div>
-
-          {/* Подписка */}
           <div>
             <h3 className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8A6656]">
               {NEWSLETTER.title}
@@ -158,8 +142,6 @@ export default function Footer() {
             )}
           </div>
         </div>
-
-        {/* Нижняя строка */}
         <div className="mt-14 flex flex-col-reverse items-start justify-between gap-4 border-t border-[#F0E1D6] pt-6 text-[13px] text-[#8A6656] sm:flex-row sm:items-center">
           <p>
             &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.

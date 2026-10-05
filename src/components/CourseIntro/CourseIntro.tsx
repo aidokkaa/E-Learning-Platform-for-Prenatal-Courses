@@ -1,6 +1,6 @@
 "use client";
 
-import React, {
+import {
   useState,
   useMemo,
   useRef,
@@ -31,8 +31,6 @@ const quicksand = Quicksand({
 });
 
 const CATEGORIES = ["Featured", "Pregnancy", "Baby Care", "Postpartum"];
-
-/* useLayoutEffect на клиенте, useEffect на сервере (чтобы не было предупреждений SSR) */
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -44,8 +42,6 @@ const CourseIntro = () => {
   const filteredCourses = useMemo(() => {
     return getAllCoursesByCategory(getAllCourses(), category);
   }, [category]);
-
-  /* ===== Плавающий индикатор активной кнопки (как в iOS) ===== */
   const trackRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const [indicator, setIndicator] = useState<Indicator | null>(null);
@@ -81,7 +77,6 @@ const CourseIntro = () => {
       className={`${quicksand.className} relative z-10 w-full overflow-hidden bg-white py-16 lg:py-24`}
     >
       <div className="relative mx-auto max-w-[1180px] px-6 text-center lg:px-10">
-        {/* Заголовок и подзаголовок */}
         <div className="mx-auto mb-10 max-w-2xl lg:mb-12">
           <p className="mb-4 flex items-center justify-center gap-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8A6656]">
             <span className="h-px w-8 bg-[#DDB99F]" />
@@ -106,14 +101,11 @@ const CourseIntro = () => {
             motherhood journey — from pregnancy to postpartum care.
           </p>
         </div>
-
-        {/* Переключатель категорий (Pills Filter) */}
         <div className="mb-12 flex justify-center lg:mb-14">
           <div
             ref={trackRef}
             className="relative inline-flex max-w-full flex-wrap justify-center gap-1.5 rounded-[28px] border border-[#F0E1D6] bg-[#FBF3EC] p-1.5 sm:rounded-full"
           >
-            {/* Плавно скользящая зелёная «таблетка» */}
             {indicator && (
               <span
                 aria-hidden="true"
@@ -139,7 +131,6 @@ const CourseIntro = () => {
                   className={`relative z-10 cursor-pointer rounded-full px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F5B58]/40 sm:px-6 ${
                     isActive
                       ? `text-white ${
-                          /* до первого замера индикатора — запасной фон, чтобы не мигало */
                           indicator ? "" : "bg-[#1F5B58]"
                         }`
                       : "text-[#6B4A3B] hover:text-[#4A1E0C]"
@@ -152,7 +143,6 @@ const CourseIntro = () => {
           </div>
         </div>
 
-        {/* Сетка карточек курсов */}
         {filteredCourses.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {filteredCourses.map((item) => (
