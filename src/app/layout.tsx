@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.auramamaclub.com"),
   title: {
     default: "Aura Mama | Prenatal & Postpartum Courses",
     template: "%s | Aura Mama",
@@ -26,7 +27,6 @@ export const metadata: Metadata = {
     title: "Aura Mama | Prenatal & Postpartum Courses",
     description:
       "Online courses for expecting and new mothers: prepare for birth with confidence and recover after childbirth.",
-    url: "/",
     siteName: "Aura Mama",
     type: "website",
   },

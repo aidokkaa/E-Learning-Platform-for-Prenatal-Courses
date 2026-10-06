@@ -1,5 +1,6 @@
 import { COURSES } from '@/src/data/courses';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BookOpen, ChevronRight, Clock, Layers } from 'lucide-react';
 import CourseAccordion from '@/src/components/CourseAccordion';
@@ -9,6 +10,22 @@ import { currentUser } from '@clerk/nextjs/server';
 
 interface CoursePageProps {
   params: Promise<{ slug: string }>;
+}
+export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const course = COURSES.find((c) => c.slug === slug);
+  if (!course) return { title: 'Course not found' };
+
+  return {
+    title: course.title,
+    description: course.description,
+    alternates: { canonical: `/courses/${course.slug}` },
+    openGraph: {
+      title: `${course.title} | Aura Mama`,
+      description: course.description,
+      images: [course.image],
+    },
+  };
 }
 
 const CoursePage = async ({ params }: CoursePageProps) => {
