@@ -1,11 +1,11 @@
 import { Course } from "@/types";
-export const earlyBabyDevCourse:Course={
+export const earlyBabyDevCourse: Course = {
   id: "early-baby-development",
   title: "Early Baby Development",
   slug: "early-baby-development",
   description: "Understand your baby's milestones in the first year and learn how to stimulate their healthy growth.",
   duration: "5 modules",
-  price: "$55.0",
+  price: "$55",
   image: "https://images.pexels.com/photos/10190040/pexels-photo-10190040.jpeg?auto=compress&cs=tinysrgb&w=1200",
   category: ["Baby Care"],
   modules: [
@@ -18,7 +18,7 @@ export const earlyBabyDevCourse:Course={
           id: "less-1-1",
           title: "1.1 Visual & Auditory Stimulation Activities",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -31,7 +31,7 @@ export const earlyBabyDevCourse:Course={
           id: "less-2-1",
           title: "2.1 Tummy Time & Early Head Control",
           duration: "15 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -44,7 +44,7 @@ export const earlyBabyDevCourse:Course={
           id: "less-3-1",
           title: "3.1 Eye Contact, Smiling & Babbling Cues",
           duration: "12 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -57,7 +57,7 @@ export const earlyBabyDevCourse:Course={
           id: "less-4-1",
           title: "4.1 Rolling, Sitting & Crawling Readiness",
           duration: "15 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -70,7 +70,7 @@ export const earlyBabyDevCourse:Course={
           id: "less-5-1",
           title: "5.1 Red Flags & When to Consult a Pediatrician",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     }

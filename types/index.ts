@@ -19,7 +19,7 @@ export interface Lesson {
   id:string,
   title:string,
   duration:string,
-  videoUrl: string;
+  videoUrl?: string;
 }
 
 export interface FAQdata {

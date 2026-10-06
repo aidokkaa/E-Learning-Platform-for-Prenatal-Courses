@@ -5,7 +5,7 @@ export const postpartumRecoveryCourse:Course={
   slug: "postpartum-recovery-wellness",
   description: "Essential physical and emotional care practices to help you heal and restore your energy after childbirth.",
   duration: "6 modules",
-  price: "$79.0",
+  price: "$79",
 image: "https://images.unsplash.com/photo-1583710457367-47de0ea21fef?auto=format&fit=crop&q=80&w=900",
   category: ["Postpartum", "Featured"],
   modules: [

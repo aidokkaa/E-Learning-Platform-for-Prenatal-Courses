@@ -5,8 +5,8 @@ export const momAndBabyCourse: Course = {
   slug: "mom-and-baby-theory",
   description: "A comprehensive guide to newborn care, covering essential parenting theory and daily routine management.",
   duration: "4 modules",
-  price: "$65.0",
- image: "https://images.pexels.com/photos/7282634/pexels-photo-7282634.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  price: "$65",
+  image: "https://images.pexels.com/photos/7282634/pexels-photo-7282634.jpeg?auto=compress&cs=tinysrgb&w=1200",
   category: ["Baby Care"],
   modules: [
     {
@@ -18,13 +18,13 @@ export const momAndBabyCourse: Course = {
           id: "less-1-1",
           title: "1.1 Basic Principles of Care",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         },
         {
           id: "less-1-2",
           title: "1.2 Handling & Hygiene",
           duration: "12 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -37,19 +37,19 @@ export const momAndBabyCourse: Course = {
           id: "less-2-1",
           title: "2.1 Sleep Schedules & Awake Windows",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         },
         {
           id: "less-2-2",
           title: "2.2 Daytime Activities",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         },
         {
           id: "less-2-3",
           title: "2.3 Evening Wind-Down Routines",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -62,7 +62,7 @@ export const momAndBabyCourse: Course = {
           id: "less-3-1",
           title: "3.1 Latching & Positioning",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     },
@@ -75,7 +75,7 @@ export const momAndBabyCourse: Course = {
           id: "less-4-1",
           title: "4.1 Crib Safety & Swaddling",
           duration: "10 min",
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+
         }
       ]
     }
