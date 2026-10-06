@@ -125,11 +125,6 @@ export default function HeroSection() {
           >
             Get your free lesson
           </Link>
-
-          <p className="mt-4 text-[13px] text-[#6B4A3B] lg:mt-6 lg:text-[15px]">
-            Trusted by <span className="font-semibold">450+</span> future
-            mothers
-          </p>
         </div>
       </div>
 

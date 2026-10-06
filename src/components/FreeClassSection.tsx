@@ -479,7 +479,7 @@ export default function FreeClassSection() {
                       onChange={(e) => setField("stage", e.target.value)}
                       aria-invalid={!!errors.stage}
                       className={`${inputClass} ${fieldBorder("stage")} appearance-none pr-11 ${
-                        form.stage ? "" : "text-[#A58B7B]"
+                        form.stage ? "" : "text-[#8A6656]"
                       }`}
                     >
                       <option value="" disabled>

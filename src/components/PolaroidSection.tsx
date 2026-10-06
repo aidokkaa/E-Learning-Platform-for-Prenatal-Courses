@@ -157,7 +157,7 @@ export default function PolaroidSuccessSection() {
           <div className="relative z-20 mx-auto max-w-[640px] px-2 text-center lg:pt-6">
             <p className="mb-4 flex items-center justify-center gap-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8A6656]">
               <span className="h-px w-8 bg-[#DDB99F]" />
-              Real stories
+              Moments
               <span className="h-px w-8 bg-[#DDB99F]" />
             </p>
 

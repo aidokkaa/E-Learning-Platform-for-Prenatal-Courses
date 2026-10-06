@@ -71,6 +71,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 max-w-[280px] text-[15px] leading-[1.7] text-[#6B4A3B]">
               {BRAND.tagline}
+              Educational content only. Not a substitute for medical advice.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:grid-cols-2 lg:gap-10">
